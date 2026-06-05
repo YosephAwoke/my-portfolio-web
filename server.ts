@@ -4,6 +4,9 @@ import dotenv from "dotenv";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI } from "@google/genai";
 
+// Load standard .env
+dotenv.config();
+// Load local-only overrides (.env.local), mirroring Vite's loading behavior
 dotenv.config({ path: path.resolve(process.cwd(), ".env.local"), override: true });
 
 const app = express();
