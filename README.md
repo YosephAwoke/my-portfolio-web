@@ -58,6 +58,40 @@ Preview the production build:
 npm run preview
 ```
 
+**Vercel Deployment (serverless)**
+
+If you choose Vercel, you can deploy the frontend and the chat endpoint as serverless functions. Steps:
+
+1. Push your repo to GitHub.
+2. Add the project in Vercel and connect your GitHub repo.
+3. In Vercel Project Settings → Environment Variables add `GEMINI_API_KEY` (value from your secrets).
+4. Ensure Vercel builds the app with the framework preset (Vite) or set build command `npm run build`.
+5. Deploy — the chat endpoint is available at `/api/chat` and will call Gemini using the server-side secret (key is never exposed to the browser).
+
+Notes:
+- Serverless functions have execution limits and are best for short request/response operations (chat single-turn calls). For streaming or very high throughput, consider Render/Fly.
+- Don't commit any `.env` files to the repository.
+
+**Environment variables for production**
+
+Set these in your hosting dashboard (Vercel/Render):
+
+- `GEMINI_API_KEY` — required for `/api/chat` to call Gemini server-side.
+- `SENDGRID_API_KEY` — optional, to enable `/api/contact` email delivery via SendGrid.
+- `CONTACT_RECEIVER_EMAIL` — email to receive contact messages (used with SendGrid).
+- `CONTACT_FROM_EMAIL` — optional `from` address for contact emails (defaults to `no-reply@portfolio`).
+- `CONTACT_WEBHOOK_URL` — optional alternative to SENDGRID: forward contact payloads to this webhook.
+
+**Testing serverless endpoints locally**
+
+You can test the API routes locally before deploying by running your local server (`npm run dev`) which currently serves `server.ts`. Alternatively, use Vercel CLI to emulate serverless functions locally:
+
+```bash
+npm i -g vercel
+vercel dev
+```
+
+
 **Project Structure (key files)**
 
 - `index.html` — app entry

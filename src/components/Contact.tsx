@@ -47,30 +47,28 @@ export default function Contact() {
 
     setStatus("loading");
 
-    try {
-      // Submitting to FormSubmit's AJAX endpoint which routes emails to yosephawoke8@gmail.com
-      const response = await fetch("https://formsubmit.co/ajax/yosephawoke8@gmail.com", {
+      try {
+      // Submit to internal API route; on Vercel or Render this will call server-side delivery
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Accept": "application/json",
         },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          _subject: `New Portfolio Message: ${formData.subject}`,
         }),
       });
 
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
 
-      if (response.ok && data.success === "true") {
+      if (response.ok && (data.ok || data.success)) {
         setStatus("success");
         setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
-        throw new Error(data.message || "Something went wrong. Please try again.");
+        throw new Error(data.error || data.message || "Something went wrong. Please try again.");
       }
     } catch (err: any) {
       console.error(err);
