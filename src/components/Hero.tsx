@@ -1,7 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Cpu, Brain, Code, Database, Radio, ArrowRight, Sparkles, Server, MapPin, Mail, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { PERSONAL_INFO } from "../data";
+
+// Background floating icons definition - moved outside to prevent re-allocation
+const FLOATING_ICONS = [
+  { Icon: Brain, color: "text-indigo-400 dark:text-indigo-500", size: 24, top: "12%", left: "8%", delay: 0, className: "animate-floating" },
+  { Icon: Cpu, color: "text-emerald-400 dark:text-emerald-500", size: 20, top: "20%", left: "92%", delay: 1, className: "animate-floating-delayed" },
+  { Icon: Code, color: "text-indigo-500 dark:text-indigo-400", size: 26, top: "75%", left: "12%", delay: 2, className: "animate-floating-slow" },
+  { Icon: Database, color: "text-emerald-550 dark:text-emerald-400", size: 22, top: "65%", left: "88%", delay: 1.5, className: "animate-floating" },
+];
 
 export default function Hero() {
   const [subtitleIndex, setSubtitleIndex] = useState(0);
@@ -15,20 +23,12 @@ export default function Hero() {
     return () => clearInterval(timer);
   }, []);
 
-  const handleScrollTo = (id: string) => {
+  const handleScrollTo = useCallback((id: string) => {
     const element = document.querySelector(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-  };
-
-  // Background floating icons definition
-  const floatingIcons = [
-    { Icon: Brain, color: "text-indigo-400 dark:text-indigo-500", size: 24, top: "12%", left: "8%", delay: 0, className: "animate-floating" },
-    { Icon: Cpu, color: "text-emerald-400 dark:text-emerald-500", size: 20, top: "20%", left: "92%", delay: 1, className: "animate-floating-delayed" },
-    { Icon: Code, color: "text-indigo-500 dark:text-indigo-400", size: 26, top: "75%", left: "12%", delay: 2, className: "animate-floating-slow" },
-    { Icon: Database, color: "text-emerald-550 dark:text-emerald-400", size: 22, top: "65%", left: "88%", delay: 1.5, className: "animate-floating" },
-  ];
+  }, []);
 
   return (
     <section
@@ -42,7 +42,7 @@ export default function Hero() {
 
       {/* Floating Sparkles in Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {floatingIcons.map((item, idx) => (
+        {FLOATING_ICONS.map((item, idx) => (
           <div
             key={idx}
             className={`absolute pointer-events-none ${item.color} ${item.className} opacity-20 dark:opacity-30 hidden md:block`}
@@ -242,64 +242,75 @@ export default function Hero() {
 
           </div>
 
-          {/* Row 2: Parallel Metrics Card (col-span-5) */}
-          <div className="col-span-1 md:col-span-5 bg-gradient-to-br from-white via-slate-50/60 to-orange-50/20 dark:from-[#2e2e2e]/90 dark:via-[#1c1c1c]/95 dark:to-[#121212]/40 border border-neutral-200/80 dark:border-brand-gray-dark/50 rounded-3xl p-5 flex items-center shadow-xs hover:border-brand-orange/30 transition-all duration-300 gap-4 min-h-[140px] text-left">
-            <div className="flex flex-col justify-center shrink-0">
-              <div className="flex items-center gap-1.5 mb-1.5">
-                <Brain size={14} className="text-[#FF5A09]" />
-                <span className="font-mono text-[9px] font-bold text-[#FF5A09] uppercase tracking-widest bg-orange-500/10 dark:bg-[#FF5A09]/15 px-2 py-0.5 rounded">Duration</span>
+          {/* Row 2: Wider compact metrics rail */}
+          <div className="col-span-1 md:col-span-12 grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 md:-mx-10 lg:-mx-16 xl:-mx-24">
+            {/* Parallel Metrics Card */}
+            <div className="col-span-1 md:col-span-4 bg-gradient-to-br from-white via-slate-50/60 to-orange-50/20 dark:from-[#2e2e2e]/90 dark:via-[#1c1c1c]/95 dark:to-[#121212]/40 border border-neutral-200/80 dark:border-brand-gray-dark/50 rounded-3xl p-4 flex items-center shadow-xs hover:border-brand-orange/30 transition-all duration-300 gap-4 min-h-[118px] text-left">
+              <div className="flex flex-col justify-center shrink-0">
+                <div className="flex items-center gap-1.5 mb-1.5">
+                  <Brain size={14} className="text-[#FF5A09]" />
+                  <span className="font-mono text-[9px] font-bold text-[#FF5A09] uppercase tracking-widest bg-orange-500/10 dark:bg-[#FF5A09]/15 px-2 py-0.5 rounded">Duration</span>
+                </div>
+                <p className="font-display font-black text-3xl sm:text-4xl text-slate-950 dark:text-white leading-none whitespace-nowrap">6+ Years</p>
               </div>
-              <p className="font-display font-black text-3xl sm:text-4xl text-slate-950 dark:text-white leading-none whitespace-nowrap">6+ Years</p>
-            </div>
-            <div className="h-[75%] border-l border-slate-150 dark:border-neutral-800/60 pl-4 flex flex-col justify-center">
-              <p className="font-sans text-[11px] sm:text-xs text-slate-500 dark:text-neutral-400 leading-relaxed select-all">
-                Of specialized track record in high-density software engineering, deep learning architectures, and scalable full-stack development.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 4: 2x MSc (Academic) (col-span-2) */}
-          <div className="col-span-1 md:col-span-2 bg-gradient-to-br from-white via-slate-50/60 to-orange-50/20 dark:from-[#2e2e2e]/90 dark:via-[#1c1c1c]/95 dark:to-[#121212]/40 border border-neutral-200/80 dark:border-brand-gray-dark/50 rounded-3xl p-5 flex flex-col justify-between shadow-xs min-h-[140px] hover:border-brand-orange/30 transition-all duration-300">
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-[9px] font-bold text-slate-400 dark:text-neutral-550 uppercase tracking-widest">Scholastics</span>
-              <span className="text-[10px] font-bold text-[#FF5A09] font-mono">3.84 GPA</span>
-            </div>
-            <div className="text-left mt-3">
-              <h4 className="font-display font-black text-xl text-slate-950 dark:text-white leading-none">2x MSc</h4>
-              <p className="text-[11px] text-slate-500 dark:text-neutral-450 mt-2.5 font-sans leading-tight">ICE & Computer Science Concentrated Graduate</p>
-            </div>
-          </div>
-
-          {/* Card 5: Core Domain (col-span-2) */}
-          <div className="col-span-1 md:col-span-2 bg-gradient-to-br from-white via-slate-50/60 to-orange-50/20 dark:from-[#2e2e2e]/90 dark:via-[#1c1c1c]/95 dark:to-[#121212]/40 border border-neutral-200/80 dark:border-brand-gray-dark/50 rounded-3xl p-5 flex flex-col justify-between shadow-xs min-h-[140px] hover:border-brand-orange/30 transition-all duration-300">
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-[9px] font-bold text-slate-400 dark:text-neutral-555 uppercase tracking-widest">Core Domain</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FF5A09] animate-pulse" />
-            </div>
-            <div className="text-left mt-3">
-              <h4 className="font-display font-black text-sm text-slate-950 dark:text-white truncate">Computer Vision</h4>
-              <p className="text-[11px] text-slate-500 dark:text-neutral-450 mt-1 font-sans leading-tight">Fine-grained attention networks & Deep Learning applications</p>
-            </div>
-          </div>
-
-          {/* Card 6: Clean Get in Touch (col-span-3) */}
-          <div
-            onClick={() => handleScrollTo("#contact")}
-            className="col-span-1 md:col-span-3 bg-gradient-to-r from-[#FF5A09] via-[#F3843E] to-[#FF9900] hover:opacity-95 text-white rounded-3xl p-5 flex flex-col justify-between group cursor-pointer transition-all duration-300 shadow-xs relative overflow-hidden min-h-[140px]"
-          >
-            <div className="absolute -right-4 -bottom-4 w-20 h-20 rounded-full bg-white/5 group-hover:scale-125 transition-transform duration-500 pointer-events-none" />
-            
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-[9px] font-bold text-orange-100 uppercase tracking-widest">Connect Directly</span>
-              <Mail size={30} className="text-white group-hover:translate-x-0.5 transition-transform shrink-0" />
+              <div className="h-[72%] border-l border-slate-150 dark:border-neutral-800/60 pl-4 flex flex-col justify-center">
+                <p className="font-sans text-[11px] sm:text-xs text-slate-700 dark:text-neutral-200 leading-relaxed select-all">
+                  Specialized track record in software engineering, deep learning architectures, and scalable full-stack development.
+                </p>
+              </div>
             </div>
 
-            <div className="text-left pb-3 relative z-10 min-w-0">
-              <p className="text-[11px] text-orange-100/90 font-medium leading-tight">Inquire for core collaboration:</p>
-              <p className="text-[15px] font-black truncate font-bold select-all text-white mt-1.5 leading-none" title={PERSONAL_INFO.email}>
-                {PERSONAL_INFO.email}
-              </p>
+            {/* Graduate Focus + Core Domain */}
+            <div className="col-span-1 md:col-span-5 bg-gradient-to-br from-white via-slate-50/60 to-orange-50/20 dark:from-[#2e2e2e]/90 dark:via-[#1c1c1c]/95 dark:to-[#121212]/40 border border-neutral-200/80 dark:border-brand-gray-dark/50 rounded-3xl p-4 flex flex-col sm:flex-row sm:items-center shadow-xs min-h-[118px] hover:border-brand-orange/30 transition-all duration-300 gap-4 text-left">
+              <div className="shrink-0 sm:w-36">
+                <div className="flex items-center gap-1.5 mb-1.5">
+                  <Code size={14} className="text-[#FF5A09]" />
+                  <span className="font-mono text-[9px] font-bold text-[#FF5A09] uppercase tracking-widest bg-orange-500/10 dark:bg-[#FF5A09]/15 px-2 py-0.5 rounded">Graduate Core</span>
+                </div>
+                <h4 className="font-display font-black text-4xl sm:text-[2.6rem] text-slate-950 dark:text-white leading-none tracking-tight whitespace-nowrap">
+                  2x MSc
+                </h4>
+                <p className="mt-1 font-mono text-[10px] font-bold text-slate-600 dark:text-neutral-300 uppercase tracking-wider">
+                  CGPA 3.84
+                </p>
+              </div>
+
+              <div className="sm:border-l border-slate-150 dark:border-neutral-800/60 sm:pl-4 min-w-0 flex-1">
+                <p className="font-sans text-[11px] sm:text-xs text-slate-700 dark:text-neutral-200 leading-snug">
+                  ICE at Huazhong University of Science and Technology (HUST), and Computer Science at American College of Technology (ACT).
+                </p>
+                <div className="flex flex-wrap gap-1.5 mt-2">
+                  {["Deep Learning", "Fine-Grained Vision", "Full-Stack Apps"].map((item) => (
+                    <span
+                      key={item}
+                      className="px-2 py-0.5 rounded-lg bg-slate-100/90 dark:bg-neutral-950/70 border border-slate-200/80 dark:border-neutral-800/80 text-[10px] font-bold text-slate-700 dark:text-neutral-100"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
+
+            {/* Clean Get in Touch */}
+            <button
+              onClick={() => handleScrollTo("#contact")}
+              className="col-span-1 md:col-span-3 bg-gradient-to-r from-[#FF5A09] via-[#F3843E] to-[#FF9900] hover:opacity-95 text-white rounded-3xl p-4 flex flex-col justify-between group cursor-pointer transition-all duration-300 shadow-xs relative overflow-hidden min-h-[118px]"
+            >
+              <div className="absolute -right-4 -bottom-4 w-20 h-20 rounded-full bg-white/5 group-hover:scale-125 transition-transform duration-500 pointer-events-none" />
+              
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-[9px] font-bold text-orange-100 uppercase tracking-widest">Connect Directly</span>
+                <Mail size={28} className="text-white group-hover:translate-x-0.5 transition-transform shrink-0" />
+              </div>
+
+              <div className="text-left relative z-10 min-w-0">
+                <p className="text-[11px] text-orange-100/90 font-medium leading-tight">Inquire for core collaboration:</p>
+                <p className="text-[15px] font-black truncate font-bold select-all text-white mt-1 leading-snug" title={PERSONAL_INFO.email}>
+                  {PERSONAL_INFO.email}
+                </p>
+              </div>
+            </button>
           </div>
 
         </div>
