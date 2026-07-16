@@ -1,5 +1,6 @@
 import { Project, Experience, Education, Certification } from "./types";
 import portraitUrl from "./assets/images/yoseph_portrait_1780390885544-1.jpg";
+import auraNotesUrl from "./assets/images/aura-notes.png";
 import weatherAppUrl from "./assets/images/weather-app.png";
 
 export const PERSONAL_INFO = {
@@ -160,6 +161,28 @@ export const PROJECTS_LIST: Project[] = [
       tools: ["TensorFlow", "FastAPI", "React", "Python", "MongoDB", "Tailwind CSS", "Git"],
       role: "Lead Deep Learning Architect & Full-Stack Developer",
       outcome: "Exceeded initial research goals by securing a 94.2% top-1 model classification accuracy, subsequently publishing a highly commended MSc thesis at Huazhong University of Science and Technology."
+    }
+  },
+  {
+    id: "proj-aura-notes",
+    title: "AuraNotes",
+    description: "A premium note and task workspace with rich editing, multiple note views, revision history, and polished glassmorphism UI.",
+    category: "full-stack",
+    tags: ["React", "Vite", "Node.js", "MongoDB", "Tiptap"],
+    image: auraNotesUrl,
+    githubUrl: "https://github.com/YosephAwoke/AuraNotes",
+    liveUrl: "https://aeroview-advanced-weather-dashboard.vercel.app/",
+    caseStudy: {
+      overview: "AuraNotes is a premium note and task workspace built with React, Vite, Node.js, MongoDB, Framer Motion, and Tiptap. It was designed as a high-fidelity productivity app with animated glass-style panels, flexible note organization, and a fast client experience backed by an API and persistent storage.",
+      features: [
+        "Built a theme-aware dashboard with animated backgrounds, glassmorphism panels, and responsive layouts.",
+        "Implemented a rich text editor powered by Tiptap for structured note creation and editing.",
+        "Added multiple note views, right-click actions, pinning, categories, and color management.",
+        "Included todo tracking, note revision history, and lazy-loaded UI pieces for a smoother first load."
+      ],
+      tools: ["React", "Vite", "Framer Motion", "Lucide React", "Tiptap", "Axios", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+      role: "Full-Stack Developer",
+      outcome: "Delivered a polished productivity workspace with persistent notes, task management, revision control, and a premium interactive UI experience."
     }
   },
   {
