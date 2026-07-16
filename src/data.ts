@@ -162,6 +162,28 @@ export const PROJECTS_LIST: Project[] = [
     }
   },
   {
+    id: "proj-aeroview-weather",
+    title: "AeroView: Advanced Weather Dashboard",
+    description: "A full-stack weather intelligence dashboard with live weather, air quality, and multi-city tracking in a polished responsive interface.",
+    category: "full-stack",
+    tags: ["React", "Vite", "Express", "MongoDB", "Tailwind CSS"],
+    image: "/src/assets/images/weather-app.png",
+    githubUrl: "https://github.com/YosephAwoke/AeroView-Advanced-Weather-Dashboard",
+    liveUrl: "https://aeroview-advanced-weather-dashboard.vercel.app/",
+    caseStudy: {
+      overview: "AeroView is a full-stack weather intelligence dashboard that delivers live weather, air quality, and city tracking in a visually rich interface. It combines a React and Vite frontend with an Express and MongoDB backend to fetch, cache, and display real-time weather data for multiple locations, while providing resilient fallback handling when external APIs or database connectivity are unstable.",
+      features: [
+        "Multi-city tracking with add, remove, and reorder functionality.",
+        "Live weather and air quality data fetched from external APIs.",
+        "Backend caching and MongoDB persistence for tracked cities and weather payloads.",
+        "Dynamic weather-based UI themes, responsive layouts, loading skeletons, and offline-friendly fallback handling."
+      ],
+      tools: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Recharts", "Node.js", "Express", "MongoDB", "Mongoose"],
+      role: "Full-Stack Developer",
+      outcome: "Delivered a production-ready weather dashboard with a premium portfolio-style experience, separate frontend and backend deployment support, and resilient data handling for unstable network conditions."
+    }
+  },
+  {
     id: "proj-covid-xray",
     title: "COVID-19 Chest X-Ray Diagnostic Model",
     description: "Deep learning neural network built to detect and classify viral pneumonia, COVID-19, and healthy chest radiographs automatically.",
