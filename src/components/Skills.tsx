@@ -222,7 +222,7 @@ export default function Skills() {
                       variants={skillVariants}
                       whileHover={{ y: -2, scale: 1.015 }}
                       transition={{ type: "spring", stiffness: 360, damping: 24 }}
-                      className="group/skill flex items-center gap-2.5 rounded-2xl font-sans text-[11px] font-bold text-slate-700 dark:text-neutral-200 bg-white/72 hover:bg-orange-50/60 dark:bg-neutral-950/48 dark:hover:bg-neutral-950/85 border border-slate-200/80 dark:border-neutral-800/80 hover:border-brand-orange/40 transition-all duration-200 cursor-default px-2.5 py-1.5 shadow-[0_1px_0_rgba(15,23,42,0.03)] min-h-[42px]"
+                      className="group/skill flex items-center gap-2.5 rounded-2xl font-sans text-[11px] font-bold text-slate-700 dark:text-neutral-200 bg-white/74 hover:bg-orange-50/60 dark:bg-neutral-950/52 dark:hover:bg-neutral-950/90 border border-slate-300/85 dark:border-neutral-650 hover:border-brand-orange/45 dark:hover:border-[#FF9900]/55 transition-all duration-200 cursor-default px-2.5 py-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.45),0_1px_0_rgba(15,23,42,0.04)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] min-h-[42px]"
                     >
                       <span className="grid h-8 w-8 shrink-0 place-items-center text-slate-800 dark:text-neutral-100 transition-transform duration-200 group-hover/skill:scale-110">
                         {Icon ? <Icon size={24} color={meta.brandColor ?? "currentColor"} /> : <span className={`text-base font-black text-transparent bg-clip-text bg-gradient-to-br ${meta.tone}`}>{meta.mark}</span>}
