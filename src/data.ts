@@ -1,5 +1,6 @@
 import { Project, Experience, Education, Certification } from "./types";
 import portraitUrl from "./assets/images/yoseph_portrait_1780390885544-1.jpg";
+import weatherAppUrl from "./assets/images/weather-app.png";
 
 export const PERSONAL_INFO = {
   name: "Yoseph Awoke",
@@ -167,7 +168,7 @@ export const PROJECTS_LIST: Project[] = [
     description: "A full-stack weather intelligence dashboard with live weather, air quality, and multi-city tracking in a polished responsive interface.",
     category: "full-stack",
     tags: ["React", "Vite", "Express", "MongoDB", "Tailwind CSS"],
-    image: "/src/assets/images/weather-app.png",
+    image: weatherAppUrl,
     githubUrl: "https://github.com/YosephAwoke/AeroView-Advanced-Weather-Dashboard",
     liveUrl: "https://aeroview-advanced-weather-dashboard.vercel.app/",
     caseStudy: {
