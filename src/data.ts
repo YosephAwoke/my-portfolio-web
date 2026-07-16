@@ -171,7 +171,7 @@ export const PROJECTS_LIST: Project[] = [
     tags: ["React", "Vite", "Node.js", "MongoDB", "Tiptap"],
     image: auraNotesUrl,
     githubUrl: "https://github.com/YosephAwoke/AuraNotes",
-    liveUrl: "https://aeroview-advanced-weather-dashboard.vercel.app/",
+    liveUrl: "https://aura-notes-omega.vercel.app/",
     caseStudy: {
       overview: "AuraNotes is a premium note and task workspace built with React, Vite, Node.js, MongoDB, Framer Motion, and Tiptap. It was designed as a high-fidelity productivity app with animated glass-style panels, flexible note organization, and a fast client experience backed by an API and persistent storage.",
       features: [
