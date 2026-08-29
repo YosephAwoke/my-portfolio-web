@@ -1,7 +1,12 @@
 import { Project, Experience, Education, Certification } from "./types";
 import portraitUrl from "./assets/images/yoseph_portrait_1780390885544-1.jpg";
+import ethioherbalUrl from "./assets/images/ethioherbal.png";
 import auraNotesUrl from "./assets/images/aura-notes.png";
 import weatherAppUrl from "./assets/images/weather-app.png";
+import gamingAppUrl from "./assets/images/gamingapp.png";
+import movieAppUrl from "./assets/images/movieapp.png";
+
+
 
 export const PERSONAL_INFO = {
   name: "Yoseph Awoke",
@@ -142,16 +147,18 @@ export const EXPERIENCE_LIST: Experience[] = [
 ];
 
 export const PROJECTS_LIST: Project[] = [
+
   {
     id: "proj-med-plants",
     title: "Medicinal Plant AI & Info System",
     description: "Deep Learning fine-grained plant classification model & knowledge base system for identifying Ethiopian traditional medicinal herbs.",
     category: "ai",
     tags: ["TensorFlow", "FastAPI", "React", "Python", "Deep Learning"],
-    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=800&h=500",
-    githubUrl: "https://github.com/yosephawoke/Medicinal-Plant-AI",
+    image: ethioherbalUrl,
+    githubUrl: "https://github.com/YosephAwoke/EthioHerbalAI",
+    liveUrl: "https://ethio-herbal-ai.vercel.app/",
     caseStudy: {
-      overview: "Yoseph's Master's thesis research focused on the intersection of deep learning computer vision and classical Ethiopian ethnobotany. To preserve and structure high-value medicinal plant metadata, this system features a neural network optimized to identify fine-grained botanical features from leaves, stems, and flowers, even within low-resolution clinical conditions.",
+      overview: "My Master's thesis research focused on the intersection of deep learning computer vision and classical Ethiopian ethnobotany. To preserve and structure high-value medicinal plant metadata, this system features a neural network optimized to identify fine-grained botanical features from leaves, stems, and flowers, even within low-resolution clinical conditions.",
       features: [
         "Curated and annotated a first-of-its-kind fine-grained image dataset encompassing 50 distinct endemic Ethiopian botanical species.",
         "Engineered dual spatial-and-channel attention modules inside CNN transfer-learning backbones (MobileNetV3 and ResNet50) to filter key structural textures.",
@@ -160,7 +167,7 @@ export const PROJECTS_LIST: Project[] = [
       ],
       tools: ["TensorFlow", "FastAPI", "React", "Python", "MongoDB", "Tailwind CSS", "Git"],
       role: "Lead Deep Learning Architect & Full-Stack Developer",
-      outcome: "Exceeded initial research goals by securing a 94.2% top-1 model classification accuracy, subsequently publishing a highly commended MSc thesis at Huazhong University of Science and Technology."
+      outcome: "Exceeded initial research goals by securing a 97.2% top-1 model classification accuracy, subsequently publishing a highly commended MSc thesis at Huazhong University of Science and Technology."
     }
   },
   {
@@ -205,6 +212,50 @@ export const PROJECTS_LIST: Project[] = [
       tools: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Recharts", "Node.js", "Express", "MongoDB", "Mongoose"],
       role: "Full-Stack Developer",
       outcome: "Delivered a production-ready weather dashboard with a premium portfolio-style experience, separate frontend and backend deployment support, and resilient data handling for unstable network conditions."
+    }
+  },
+    {
+    id: "proj-gaming-app",
+    title: "Jos Anime Gaming Site",
+    description: "A cinematic gaming landing page with full-screen transitions, smooth scrolling, audio-driven atmosphere, and motion-rich interface storytelling built to showcase polished UI engineering.",
+    category: "ui-ux",
+    tags: ["React", "Framer Motion", "Vite", "Smooth Scrolling", "Audio UI"],
+    image: gamingAppUrl,
+    githubUrl: "https://github.com/YosephAwoke/jos-anime-gaming-site",
+    liveUrl: "https://jos-anime-gaming-site.vercel.app/",
+    caseStudy: {
+      overview: "Jos Anime Gaming Site is a high-impact landing page built to demonstrate advanced frontend presentation, animated transitions, and immersive page choreography. It focuses on a fullscreen visual experience with motion-led section changes, ambient audio support, and smooth scrolling interactions that make the site feel closer to a premium game launch experience than a standard portfolio demo.",
+      features: [
+        "Designed a fullscreen landing flow with cinematic section transitions and layered visual storytelling.",
+        "Implemented smooth scrolling and scroll-responsive motion to keep the page feeling fluid and controlled.",
+        "Integrated audio-driven atmosphere to add depth and reinforce the gaming brand presentation.",
+        "Built reusable animated components with Framer Motion for elegant entrances, exits, and hover states."
+      ],
+      tools: ["React", "Vite", "Framer Motion", "CSS Animations", "Smooth Scroll", "UI Motion"],
+      role: "Frontend Developer",
+      outcome: "Delivered a visually striking gaming landing page that demonstrates strong UI craftsmanship, motion design control, and modern frontend composition skills."
+    }
+  },
+  {
+    id: "proj-movie-app",
+    title: "Movies App React",
+    description: "A movie discovery app that loads updated film data from an API, supports search and filtering, and lets users save favorite movies for quick access.",
+    category: "full-stack",
+    tags: ["React", "API Integration", "Search", "Favorites", "Movie DB"],
+    image: movieAppUrl,
+    githubUrl: "https://github.com/YosephAwoke/Movies-app-react",
+    liveUrl: "https://movies-app-react-fmih.vercel.app/",
+    caseStudy: {
+      overview: "Movies App React is a data-driven movie browsing experience built to highlight API integration, searchability, and user-facing collection features. The app retrieves current movie content, surfaces key metadata like title, poster, and release year, and gives users a favorites flow that turns the interface into a practical catalog rather than a static showcase.",
+      features: [
+        "Fetched updated movie records through API calls so the catalogue stays current and relevant.",
+        "Added search and discovery flows that help users quickly find titles by name or browsing intent.",
+        "Displayed essential movie metadata including poster artwork, title, and release year for quick scanning.",
+        "Implemented a favorites section so users can save movies and revisit them without searching again."
+      ],
+      tools: ["React", "REST API", "JavaScript", "State Management", "Responsive UI"],
+      role: "Frontend Developer",
+      outcome: "Built a practical movie explorer that demonstrates API consumption, interactive state handling, and user-focused feature design in a clean React interface."
     }
   },
   {
