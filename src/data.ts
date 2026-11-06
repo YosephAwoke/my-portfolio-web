@@ -1,6 +1,7 @@
 import { Project, Experience, Education, Certification } from "./types";
 import portraitUrl from "./assets/images/yoseph_portrait_1780390885544-1.jpg";
 import ethioherbalUrl from "./assets/images/ethioherbal.png";
+import jMartUrl from "./assets/images/JMart.png";
 import auraNotesUrl from "./assets/images/aura-notes.png";
 import weatherAppUrl from "./assets/images/weather-app.png";
 import gamingAppUrl from "./assets/images/gamingapp.png";
@@ -168,6 +169,29 @@ export const PROJECTS_LIST: Project[] = [
       tools: ["TensorFlow", "FastAPI", "React", "Python", "MongoDB", "Tailwind CSS", "Git"],
       role: "Lead Deep Learning Architect & Full-Stack Developer",
       outcome: "Exceeded initial research goals by securing a 97.2% top-1 model classification accuracy, subsequently publishing a highly commended MSc thesis at Huazhong University of Science and Technology."
+    }
+  },
+  {
+    id: "proj-jmart",
+    title: "JMart",
+    description: "A full-stack ecommerce platform built for the Ethiopian market with product discovery, authentication, favorites, cart management, and an Ethiopia-focused checkout flow.",
+    category: "full-stack",
+    tags: ["React", "TypeScript", "Express", "MongoDB", "JWT"],
+    image: jMartUrl,
+    githubUrl: "https://github.com/YosephAwoke/JMart",
+    liveUrl: "https://jmart33.vercel.app/",
+    caseStudy: {
+      overview: "JMart is a full-stack ecommerce platform designed for the Ethiopian market. It combines a React and TypeScript storefront with an Express and MongoDB backend, API-first product data, and a shared fallback catalog that keeps the shopping experience functional during backend or database interruptions.",
+      features: [
+        "Built product catalog, search, filtering, sorting, ratings, stock information, categories, and related product discovery.",
+        "Implemented detailed product pages with multi-image galleries, zoom controls, variants, reviews, and favorites.",
+        "Added JWT authentication, user registration, profile management, password updates, and shopping cart quantity and variant management.",
+        "Created an Ethiopia-focused checkout flow with mock Chapa payments, order receipts, and payment status updates.",
+        "Designed a responsive light and dark storefront with English and Amharic-ready content structure and fallback catalog support."
+      ],
+      tools: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "Node.js", "Express", "MongoDB", "Mongoose", "JWT", "bcrypt", "Zod", "Vercel", "Render"],
+      role: "Full-Stack Developer",
+      outcome: "Delivered and deployed a complete ecommerce monorepo with a polished customer storefront, database-backed API, authentication and commerce workflows, and resilient product loading for the Ethiopian market."
     }
   },
   {
